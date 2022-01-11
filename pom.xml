@@ -239,4 +239,13 @@
         <finalName>${project.artifactId}</finalName>
     </build>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/ansible-middleware/addressbook</url>
+        </repository>
+    </distributionManagement>
+
+
 </project>

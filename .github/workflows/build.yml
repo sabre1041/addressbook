@@ -1,0 +1,25 @@
+name: Build addressbook
+
+on:
+  push:
+    branches:
+      - main
+      - github-actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          java-version: "8"
+          distribution: "temurin"
+          cache: "maven"
+      - name: Publish package
+        run: mvn package
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
